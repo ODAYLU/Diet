@@ -1,0 +1,159 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+    <link href="~/css/themify-icons.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/flaticon.css" rel="stylesheet"/>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/animate.css" rel="stylesheet"/>
+    <link href="~/css/owl.carousel.css" rel="stylesheet"/>
+    <link href="~/css/owl.theme.css" rel="stylesheet"/>
+    <link href="~/css/slick.css" rel="stylesheet">
+    <link href="~/css/slick-theme.css" rel="stylesheet">
+    <link href="~/css/swiper.min.css" rel="stylesheet">
+    <link href="~/css/owl.transitions.css" rel="stylesheet">
+    <link href="~/css/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/css/odometer-theme-default.css" rel="stylesheet">
+    <link href="~/css/nice-select.css" rel="stylesheet">
+    <link href="~/css/signup.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+@*<h1>@ViewData["Title"]</h1>*@
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Email"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section> 
+    </div>
+</div>*@
+
+@*//-----------------------------------------*@
+   <div class="tp-login-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form class="tp-accountWrapper" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                           
+                        <div class="tp-accountInfo">
+                            <div class="tp-accountInfoHeader">
+                                <!-- <a href="#"><img src="assets/images/logo.png" alt=""></a> -->
+                                <!-- <a class="tp-accountBtn" href="login.php">
+                                    <span class="">Log in</span>
+                                </a> -->
+                            </div>
+                            <div class="image">
+                                <img src="~/img/logoDiet.jpg" alt="">
+                            </div>
+                            <div class="back-home">
+                                <a class="tp-accountBtn" href="index.php">
+                                    <span class="">Back To Home</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="tp-accountForm form-style">
+                            <div class="fromTitle">
+                                <h2>Signup</h2>
+                                <p>Sign into your pages account</p>
+                            </div>
+                          
+                            <div class="row">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <label for="name">First Name</label>
+                                    <input type="text" id="name"  asp-for="Input.FirstName" placeholder="Your name here..">
+                                </div>
+                                  <div class="col-lg-12 col-md-12 col-12"> 
+                                    <label for="name">Last Name</label>
+                                    <input type="text" id="name"  asp-for="Input.LastName" placeholder="Your name here..">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <label>Email</label>
+                                    <input type="text" id="email" asp-for="Input.Email" placeholder="Your email here.." />
+                                      <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="pwd2"  asp-for="Input.Password" autocomplete="new-password" placeholder="Your password here.." />
+                                          <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                  <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="pwd2" type="password" asp-for="Input.ConfirmPassword" autocomplete="new-password" placeholder="Confirm password here.." />
+                                          <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Input.IsDoctor">Register As a Doctor?</label>
+                                        <input  asp-for="Input.IsDoctor" style="width:20px;" />
+                                   
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <button type="submit" name="signup" class="tp-accountBtn">Signup</button>
+                                </div>
+                            </div>
+                            <p class="subText"> <a href="/Identity/Account/Login">Already have an account?</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

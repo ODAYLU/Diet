@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Diet.Models.Order>
+
+@{
+    ViewData["Title"] = "OrdersPatient";
+}
+
+<h1 style="margin-top:50px">OrdersPatient</h1>
+
+
+    <a asp-action="CreateOrder" class="btn btn-outline-primary">Create New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.FirstName)
+                @Html.DisplayFor(modelItem => item.Doctor.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.FirstName)
+                @Html.DisplayFor(modelItem => item.Patient.LastName)
+            </td>
+            <td>
+                <a asp-action="RepliesForOrder" asp-route-id="@item.ID">Replies</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

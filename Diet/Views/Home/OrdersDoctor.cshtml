@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Diet.Models.Order>
+
+@{
+    ViewData["Title"] = "OrdersDoctor";
+}
+
+<h1 style="margin-top:50px">OrdersDoctor</h1>
+
+
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.FirstName) 
+                @Html.DisplayFor(modelItem => item.Doctor.LastName) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.FirstName)
+                @Html.DisplayFor(modelItem => item.Patient.LastName)
+            </td>
+            <td>
+                <a asp-action="ReplyOrder" class="btn btn-outline-primary" asp-route-id="@item.ID">Reply</a> | 
+                <a asp-action="MakeOrderDone" class="btn btn-outline-primary" asp-route-id="@item.ID">Make Done</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
